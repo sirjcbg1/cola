@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cola{% endblock %}
+
+{% block body %}
+    <h1>Cola</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cola.id }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ cola.Descripcion }}</td>
+            </tr>
+            <tr>
+                <th>TiempoAtencion</th>
+                <td>{{ cola.TiempoAtencion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cola_index') }}">back to list</a>
+
+    <a href="{{ path('app_cola_edit', {'id': cola.id}) }}">edit</a>
+
+    {{ include('cola/_delete_form.html.twig') }}
+{% endblock %}

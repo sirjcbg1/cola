@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cola index{% endblock %}
+
+{% block body %}
+    <h1>Cola index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descripcion</th>
+                <th>TiempoAtencion</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cola in colas %}
+            <tr>
+                <td>{{ cola.id }}</td>
+                <td>{{ cola.Descripcion }}</td>
+                <td>{{ cola.TiempoAtencion }}</td>
+                <td>
+                    <a href="{{ path('app_cola_show', {'id': cola.id}) }}">show</a>
+                    <a href="{{ path('app_cola_edit', {'id': cola.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cola_new') }}">Create new</a>
+{% endblock %}
